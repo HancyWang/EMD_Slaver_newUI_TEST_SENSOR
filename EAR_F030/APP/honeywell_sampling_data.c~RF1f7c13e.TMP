@@ -1,0 +1,144 @@
+#include "honeywell_sampling_data.h"
+#include "os_core.h"
+#include "app.h"
+#include "i2c.h"
+#include "comm_task.h"
+#include "protocol_module.h"
+#include "stm32f0xx_rtc.h"
+#include "rtc.h"
+#include "string.h"
+#include "fifo.h"
+
+//#define HONEYWELL_RATE			11185   //斜率,根据公式算出来的
+
+//extern uint32_t adc_value[2];
+extern uint32_t adc_pressure_value;
+
+BOOL b_getHoneywellZeroPoint=0;
+HONEYWELL_STATE honeywell_state=HONEYWELL_START;
+uint32_t HONEYWELL_ZERO_POINT=0;
+
+uint32_t trans_xmmHg_2_adc_value(uint8_t xmmHg)
+{
+//	uint32_t tmp;
+//	FlashRead(FLASH_WRITE_START_ADDR,&tmp,1);
+//	uint8_t data=(tmp&0xFF)>>8;
+	
+	uint8_t data_high=xmmHg/16;
+	uint8_t data_low=xmmHg%16;
+	//y=ax+b
+	return HONEYWELL_RATE*(data_high*10+data_low)/10+HONEYWELL_ZERO_POINT;
+}
+
+#ifdef DEBUG_STORE_HONEYWELL_DATA
+extern FIFO_TYPE send_fifo;
+
+/// @brief flag of store honeywell data
+BOOL b_Start_Store_Data=FALSE;
+
+/// @brief array to store data,each time send 30 struct datas
+static SENSOR_DATA honeywell_data[HONEYWELL_STRC_DATA_SIZE];
+
+static uint8_t send_cnt=0;
+
+/// @brief store the collecting data into flash
+/// @param void
+/// @retval void
+static void send_honeywell_data_2_PC(SENSOR_DATA* p_strcData,int SIZE)
+{
+	if(SIZE!=HONEYWELL_STRC_DATA_SIZE)
+	{
+		return;
+	}
+	uint8_t strc_size=sizeof(SENSOR_DATA);
+	
+	uint8_t buffer[4+strc_size*HONEYWELL_STRC_DATA_SIZE+2];
+	
+	buffer[0] = 0xFF;      						//0xFF
+	buffer[1] = 4+strc_size*HONEYWELL_STRC_DATA_SIZE;            
+	buffer[2] = MODULE_CMD_TYPE;      //0x00
+	buffer[3] = SEND_HONEYWELL_DATA; 			//0x77
+	
+	int j=0;
+	for(int i=0;i<SIZE;i++)
+	{
+		buffer[4+i*strc_size+0]=p_strcData[i].YEAR;
+		buffer[4+i*strc_size+1]=p_strcData[i].MONTH;
+		buffer[4+i*strc_size+2]=p_strcData[i].DAY;
+		buffer[4+i*strc_size+3]=p_strcData[i].HOUR;
+		buffer[4+i*strc_size+4]=p_strcData[i].MIN;
+		buffer[4+i*sizeof(SENSOR_DATA)+5]=p_strcData[i].SECOND;
+		buffer[4+i*sizeof(SENSOR_DATA)+6]=p_strcData[i].DATA_0;
+		buffer[4+i*sizeof(SENSOR_DATA)+7]=p_strcData[i].DATA_1;
+	}
+	
+	CalcCheckSum(buffer);
+	fifoWriteData(&send_fifo, buffer, buffer[1]+2);
+}
+#endif
+
+void honeywell_sampling_data()
+{
+	if(honeywell_state==HONEYWELL_START)
+	{
+		Init_honeywell_sensor();
+		honeywell_state=HONEYWELL_READ_DATA;
+	}
+	
+	if(honeywell_state==HONEYWELL_READ_DATA)
+	{	
+		if(Is_honeywell_free()==1)
+		{
+			if(b_getHoneywellZeroPoint==0) //考虑到会有零飘,在第一次读数据的时候获取零点值
+			{
+				HONEYWELL_ZERO_POINT=honeywell_readByte();
+				b_getHoneywellZeroPoint=1;
+			}
+			else
+			{
+				adc_pressure_value=honeywell_readByte();
+				honeywell_state=HONEYWELL_START;
+				
+				#ifdef DEBUG_STORE_HONEYWELL_DATA
+				if(b_Start_Store_Data)
+				{
+					if(send_cnt==30)
+					{
+						send_cnt=0;
+						b_Start_Store_Data=FALSE;
+						send_honeywell_data_2_PC(honeywell_data,HONEYWELL_STRC_DATA_SIZE);
+						memset(honeywell_data,0,HONEYWELL_STRC_DATA_SIZE*sizeof(SENSOR_DATA));
+					}
+					else
+					{
+						// get RTC data, and fill the struct data
+						RTC_DateTypeDef date_struct;
+						RTC_TimeTypeDef time_struct;
+						Get_DataTime(&date_struct,&time_struct);
+						
+						SENSOR_DATA data_tmp={0};
+						data_tmp.YEAR=date_struct.RTC_Year;
+						data_tmp.MONTH=date_struct.RTC_Month;
+						data_tmp.DAY=date_struct.RTC_Date;
+						data_tmp.HOUR=time_struct.RTC_Hours;
+						data_tmp.MIN=time_struct.RTC_Minutes;
+						data_tmp.SECOND=time_struct.RTC_Seconds;
+						
+						uint32_t diff=0;
+						diff=adc_pressure_value-HONEYWELL_ZERO_POINT;
+						data_tmp.DATA_0=diff%HONEYWELL_RATE==0?diff/HONEYWELL_RATE:diff/HONEYWELL_RATE+1;
+						data_tmp.DATA_1=(diff%HONEYWELL_RATE)*10/HONEYWELL_RATE;
+						honeywell_data[send_cnt]=data_tmp;
+						send_cnt++;
+					}
+				}
+				
+				#endif
+			}
+		}
+	}
+	
+	os_delay_ms(HONEYWELL_SAMPLING_DATA_TASK_ID,HONEYWELL_SAMPLING_DATA_PERIOD);  //10ms循环一次任务
+}
+
+
