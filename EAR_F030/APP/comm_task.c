@@ -388,8 +388,13 @@ void TaskDataSend (void)
 		if(b_get_para)
 		{
 			delay_ms(30);
+			os_delay_ms(SEND_TASK_ID, 30);
 		}
-		os_delay_ms(SEND_TASK_ID, 30);
+		else
+		{
+			os_delay_ms(SEND_TASK_ID, 20);
+		}
+		
 		#else
 		os_delay_ms(SEND_TASK_ID, 30);  //markÒ»ÏÂ
 		#endif	

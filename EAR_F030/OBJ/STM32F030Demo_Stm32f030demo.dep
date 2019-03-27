@@ -1,5 +1,5 @@
 Dependencies for Project 'STM32F030Demo', Target 'Stm32f030demo': (DO NOT MODIFY !)
-F (.\main.c)(0x5C932728)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5C9B13B6)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (stm32f0xx.h)(0x5C930A10)
 I (..\CORE\core_cm0.h)(0x5C930A10)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -19,7 +19,7 @@ I (..\OS\os_cfg.h)(0x5C930A10)
 I (..\OS\os_core.h)(0x5C930A10)
 I (..\HARDWARE\hardware.h)(0x5C99DA35)
 I (..\SYSTEM\fifo\datatype.h)(0x5C930A10)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\APP\comm_task.h)(0x5C930A10)
 I (..\APP\key_led_task.h)(0x5C930A10)
 I (..\APP\i2c.h)(0x5C930A10)
@@ -75,7 +75,7 @@ I (..\STM32F03x_FWLib\inc\stm32f0xx_rcc.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_usart.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_misc.h)(0x5C930A10)
 F (..\APP\app.c)(0x5C99BACB)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\app.o --omf_browse ..\obj\app.crf --depend ..\obj\app.d)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\OS\os_cfg.h)(0x5C930A10)
 I (..\OS\os_core.h)(0x5C930A10)
 I (..\User\stm32f0xx.h)(0x5C930A10)
@@ -99,11 +99,11 @@ I (..\HARDWARE\hardware.h)(0x5C99DA35)
 I (..\HARDWARE\Motor_pwm.h)(0x5C930A10)
 I (..\SYSTEM\fifo\fifo.h)(0x5C930A10)
 I (..\MODULE\protocol_module.h)(0x5C999CBB)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_rtc.h)(0x5C930A10)
 I (..\APP\key_led_task.h)(0x5C930A10)
 I (..\SYSTEM\delay.h)(0x5C930A10)
-F (..\APP\comm_task.c)(0x5C9A469B)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\comm_task.o --omf_browse ..\obj\comm_task.crf --depend ..\obj\comm_task.d)
+F (..\APP\comm_task.c)(0x5C9AE2F6)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\comm_task.o --omf_browse ..\obj\comm_task.crf --depend ..\obj\comm_task.d)
 I (..\APP\comm_task.h)(0x5C930A10)
 I (..\SYSTEM\fifo\datatype.h)(0x5C930A10)
 I (..\SYSTEM\fifo\fifo.h)(0x5C930A10)
@@ -125,11 +125,11 @@ I (..\STM32F03x_FWLib\inc\stm32f0xx_misc.h)(0x5C930A10)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\SYSTEM\delay.h)(0x5C930A10)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\SYSTEM\serial_port.h)(0x5C99D991)
 I (..\User\device_type.h)(0x5C930A10)
 I (..\MODULE\protocol_module.h)(0x5C999CBB)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\APP\key_led_task.h)(0x5C930A10)
 I (..\HARDWARE\Motor_pwm.h)(0x5C930A10)
 I (..\APP\i2c.h)(0x5C930A10)
@@ -137,7 +137,7 @@ I (..\APP\common.h)(0x5C930A10)
 I (..\HARDWARE\hardware.h)(0x5C99DA35)
 I (..\User\iwtdg.h)(0x5C930A10)
 F (..\APP\key_led_task.c)(0x5C930A10)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\key_led_task.o --omf_browse ..\obj\key_led_task.crf --depend ..\obj\key_led_task.d)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\OS\os_cfg.h)(0x5C930A10)
 I (..\OS\os_core.h)(0x5C930A10)
 I (..\User\stm32f0xx.h)(0x5C930A10)
@@ -157,7 +157,7 @@ I (..\HARDWARE\hardware.h)(0x5C99DA35)
 I (..\SYSTEM\fifo\fifo.h)(0x5C930A10)
 I (..\APP\key_led_task.h)(0x5C930A10)
 I (..\MODULE\protocol_module.h)(0x5C999CBB)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\APP\i2c.h)(0x5C930A10)
 I (..\APP\common.h)(0x5C930A10)
 I (..\HARDWARE\Motor_pwm.h)(0x5C930A10)
@@ -172,7 +172,7 @@ I (..\SYSTEM\delay.h)(0x5C930A10)
 I (..\APP\comm_task.h)(0x5C930A10)
 I (..\User\iwtdg.h)(0x5C930A10)
 F (..\APP\honeywell_sampling_data.c)(0x5C9A4636)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\honeywell_sampling_data.o --omf_browse ..\obj\honeywell_sampling_data.crf --depend ..\obj\honeywell_sampling_data.d)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\SYSTEM\fifo\datatype.h)(0x5C930A10)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
 I (..\OS\os_core.h)(0x5C930A10)
@@ -187,7 +187,7 @@ I (..\STM32F03x_FWLib\inc\stm32f0xx_gpio.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_rcc.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_usart.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_misc.h)(0x5C930A10)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\OS\os_cfg.h)(0x5C930A10)
 I (..\APP\i2c.h)(0x5C930A10)
 I (..\APP\common.h)(0x5C930A10)
@@ -216,10 +216,10 @@ I (..\User\device_type.h)(0x5C930A10)
 I (..\HARDWARE\hardware.h)(0x5C99DA35)
 I (..\SYSTEM\fifo\fifo.h)(0x5C930A10)
 I (..\MODULE\protocol_module.h)(0x5C999CBB)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\APP\comm_task.h)(0x5C930A10)
 I (..\OS\os_core.h)(0x5C930A10)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\OS\os_cfg.h)(0x5C930A10)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
@@ -336,9 +336,9 @@ I (..\APP\i2c.h)(0x5C930A10)
 I (..\APP\common.h)(0x5C930A10)
 I (..\APP\comm_task.h)(0x5C930A10)
 I (..\MODULE\protocol_module.h)(0x5C999CBB)
-I (..\APP\honeywell_sampling_data.h)(0x5C9A43B4)
+I (..\APP\honeywell_sampling_data.h)(0x5C9AF284)
 I (..\APP\key_led_task.h)(0x5C930A10)
-I (..\APP\app.h)(0x5C9A41E4)
+I (..\APP\app.h)(0x5C9AF81C)
 I (..\HARDWARE\rtc.h)(0x5C930A10)
 I (..\STM32F03x_FWLib\inc\stm32f0xx_rtc.h)(0x5C930A10)
 F (..\HARDWARE\Motor_pwm.c)(0x5C930A10)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork -I ..\APP -I ..\OS -I ..\CORE -I ..\HARDWARE -I ..\MODULE -I ..\STM32F03x_FWLib\inc -I ..\STM32F03x_FWLib\src -I ..\User -I ..\SYSTEM -I ..\SYSTEM\cmd -I ..\SYSTEM\fifo-I.\RTE\_Stm32f030demo-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F071xB -DUSE_STDPERIPH_DRIVER -DSTM32F0XX-o ..\obj\motor_pwm.o --omf_browse ..\obj\motor_pwm.crf --depend ..\obj\motor_pwm.d)
