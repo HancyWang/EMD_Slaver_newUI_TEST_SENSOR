@@ -8,7 +8,8 @@
 #define HONEYWELL_STRC_DATA_SIZE 15   //每次传输的数据个数，3个数据，每个数据2个字节
 
 #define HONEYWELL_RATE			11185   //斜率,根据公式算出来的
-#define PRESSURE_SAFETY_THRESHOLD 20   //20mmHg，最大过压值
+//#define PRESSURE_SAFETY_THRESHOLD 20   //20mmHg，最大过压值
+#define PRESSURE_SAFETY_THRESHOLD 100   	//应Ilan要求，改成100做测试
 #define PRESSURE_SENSOR_VALUE(x) (((HONEYWELL_RATE)*(x))+(HONEYWELL_ZERO_POINT))
 
 
