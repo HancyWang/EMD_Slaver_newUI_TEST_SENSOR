@@ -392,7 +392,7 @@ void TaskDataSend (void)
 		}
 		else
 		{
-			os_delay_ms(SEND_TASK_ID, 20);
+			os_delay_ms(SEND_TASK_ID, 10);
 		}
 		
 		#else
